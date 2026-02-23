@@ -26,3 +26,5 @@ dist-ssr
 # Local environment files
 .env
 src-tauri/.env
+# Windows ADS artifacts
+*:[Zz]one.Identifier

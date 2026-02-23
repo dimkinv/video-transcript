@@ -1,5 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import type { Language } from "../types/languages";
+import type { ChunkInfo, CostEstimate, VideoInfo } from "../types/processing";
 import type { AppSettings } from "../types/settings";
 import type { VideoFileInfo } from "../types/video";
 
@@ -45,6 +46,30 @@ export async function selectVideoFile(): Promise<string | null> {
  */
 export async function validateVideoFile(path: string): Promise<VideoFileInfo> {
   return invokeCommand<VideoFileInfo>("validate_video_file", { path });
+}
+
+/**
+ * Probes video metadata (duration, codec, format, resolution).
+ */
+export async function getVideoInfo(path: string): Promise<VideoInfo> {
+  return invokeCommand<VideoInfo>("get_video_info", { path });
+}
+
+/**
+ * Calculates chunk boundaries based on duration and configured chunk length.
+ */
+export async function calculateChunks(durationSeconds: number, chunkDurationMinutes: number): Promise<ChunkInfo[]> {
+  return invokeCommand<ChunkInfo[]>("calculate_chunks", {
+    durationSeconds,
+    chunkDurationMinutes,
+  });
+}
+
+/**
+ * Estimates OpenAI Whisper transcription cost.
+ */
+export async function estimateCost(durationSeconds: number): Promise<CostEstimate> {
+  return invokeCommand<CostEstimate>("estimate_cost", { durationSeconds });
 }
 
 /**

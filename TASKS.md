@@ -232,14 +232,14 @@
 **Estimated Time**: 2 hours
 
 **Definition of Done:**
-- [ ] `src-tauri/src/utils/ffmpeg.rs` created
-- [ ] Function to get FFmpeg binary path (from sidecar)
-- [ ] Helper function to execute FFmpeg commands
-- [ ] Stdout/stderr capture
-- [ ] Exit code checking
-- [ ] Error type for FFmpeg failures
-- [ ] Logging for all FFmpeg commands
-- [ ] Timeout support for long-running commands
+- [x] `src-tauri/src/utils/ffmpeg.rs` created
+- [x] Function to get FFmpeg binary path (from sidecar)
+- [x] Helper function to execute FFmpeg commands
+- [x] Stdout/stderr capture
+- [x] Exit code checking
+- [x] Error type for FFmpeg failures
+- [x] Logging for all FFmpeg commands
+- [x] Timeout support for long-running commands
 
 ---
 
@@ -248,14 +248,14 @@
 **Estimated Time**: 2 hours
 
 **Definition of Done:**
-- [ ] Function in `src-tauri/src/commands/video.rs` to probe video
-- [ ] Execute `ffprobe` with JSON output format
-- [ ] Parse duration, format, codec, resolution, size
-- [ ] `get_video_info(path: String)` Tauri command
-- [ ] Returns struct with video metadata
-- [ ] Error handling for invalid/corrupted videos
-- [ ] Command registered in `main.rs`
-- [ ] Corresponding TypeScript type in `src/types/processing.ts`
+- [x] Function in `src-tauri/src/commands/video.rs` to probe video
+- [x] Execute `ffprobe` with JSON output format
+- [x] Parse duration, format, codec, resolution, size
+- [x] `get_video_info(path: String)` Tauri command
+- [x] Returns struct with video metadata
+- [x] Error handling for invalid/corrupted videos
+- [x] Command registered in `main.rs`
+- [x] Corresponding TypeScript type in `src/types/processing.ts`
 
 ---
 
@@ -264,12 +264,12 @@
 **Estimated Time**: 1 hour
 
 **Definition of Done:**
-- [ ] Function to calculate number of chunks based on duration and chunk size
-- [ ] Function to generate chunk timestamps (start/end for each)
-- [ ] Edge case handling (video shorter than chunk duration)
-- [ ] Last chunk handling (may be shorter than configured duration)
-- [ ] Returns array of `ChunkInfo` structs with start_time, duration, chunk_number
-- [ ] Unit tests for chunk calculation logic
+- [x] Function to calculate number of chunks based on duration and chunk size
+- [x] Function to generate chunk timestamps (start/end for each)
+- [x] Edge case handling (video shorter than chunk duration)
+- [x] Last chunk handling (may be shorter than configured duration)
+- [x] Returns array of `ChunkInfo` structs with start_time, duration, chunk_number
+- [x] Unit tests for chunk calculation logic
 
 ---
 
@@ -278,14 +278,14 @@
 **Estimated Time**: 1.5 hours
 
 **Definition of Done:**
-- [ ] `estimate_cost(duration_seconds: f64)` Tauri command
-- [ ] Calculation: `(duration_minutes * RATE_PER_MINUTE)` where rate = $0.006
-- [ ] Returns formatted cost string (e.g., "$0.36 USD")
-- [ ] Command registered in `main.rs`
-- [ ] `src/components/CostEstimate.tsx` component created
-- [ ] Display estimated cost before processing
-- [ ] Warning if cost exceeds threshold (e.g., $5)
-- [ ] Real-time update when video selected
+- [x] `estimate_cost(duration_seconds: f64)` Tauri command
+- [x] Calculation: `(duration_minutes * RATE_PER_MINUTE)` where rate = $0.006
+- [x] Returns formatted cost string (e.g., "$0.36 USD")
+- [x] Command registered in `main.rs`
+- [x] `src/components/CostEstimate.tsx` component created
+- [x] Display estimated cost before processing
+- [x] Warning if cost exceeds threshold (e.g., $5)
+- [x] Real-time update when video selected
 
 ---
 
@@ -294,13 +294,13 @@
 **Estimated Time**: 1 hour
 
 **Definition of Done:**
-- [ ] Video duration displayed (formatted as HH:MM:SS)
-- [ ] Video size displayed (formatted as MB/GB)
-- [ ] Number of chunks calculated and displayed
-- [ ] Video format/codec displayed
-- [ ] Cost estimate displayed prominently
-- [ ] All info appears after file selection
-- [ ] Loading state while probing video
+- [x] Video duration displayed (formatted as HH:MM:SS)
+- [x] Video size displayed (formatted as MB/GB)
+- [x] Number of chunks calculated and displayed
+- [x] Video format/codec displayed
+- [x] Cost estimate displayed prominently
+- [x] All info appears after file selection
+- [x] Loading state while probing video
 
 ---
 

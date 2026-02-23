@@ -272,3 +272,24 @@ select {
     flex-wrap: wrap;
   }
 }
+
+.cost-estimate {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d7e2ef;
+  background: #f8fbff;
+}
+
+.cost-amount {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f3f73;
+}
+
+.warning-text {
+  margin: 8px 0 0;
+  color: #8f3000;
+  font-weight: 700;
+}

@@ -1,5 +1,6 @@
 mod commands;
 mod models;
+mod utils;
 
 #[cfg(target_os = "windows")]
 use std::process::Command;
@@ -54,6 +55,9 @@ pub fn run() {
             commands::language::get_supported_languages,
             commands::video::select_video_file,
             commands::video::validate_video_file,
+            commands::video::get_video_info,
+            commands::video::calculate_chunks,
+            commands::video::estimate_cost,
             commands::video::select_output_folder
         ])
         .run(tauri::generate_context!())

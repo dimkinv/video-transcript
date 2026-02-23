@@ -1,49 +1,71 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
+import { useEffect, useState } from "react";
+import { SettingsModal } from "./components/SettingsModal";
+import { getSettings } from "./services/tauri-commands";
+import type { AppSettings } from "./types/settings";
 import "./App.css";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [settings, setSettings] = useState<AppSettings | null>(null);
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const loadedSettings = await getSettings();
+        setSettings(loadedSettings);
+      } catch (error) {
+        console.error("Failed to load settings", error);
+      }
+    };
+
+    void load();
+  }, []);
 
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
+    <main className="app-shell">
+      <header className="app-header">
+        <div>
+          <p className="kicker">Video Transcription</p>
+          <h1>Setup & Configuration</h1>
+        </div>
+        <button type="button" className="primary-btn" onClick={() => setIsSettingsOpen(true)}>
+          Open Settings
+        </button>
+      </header>
 
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      <section className="card">
+        <h2>Phase 1 Status</h2>
+        <p>
+          Settings persistence, language definitions, and development environment support are wired.
+          Continue with file selection in Phase 2.
+        </p>
+        {settings && (
+          <dl className="summary-grid">
+            <div>
+              <dt>Chunk Duration</dt>
+              <dd>{settings.chunkDurationMinutes} min</dd>
+            </div>
+            <div>
+              <dt>Max Retries</dt>
+              <dd>{settings.maxRetries}</dd>
+            </div>
+            <div>
+              <dt>Source Language</dt>
+              <dd>{settings.sourceLanguage}</dd>
+            </div>
+            <div>
+              <dt>Output Folder</dt>
+              <dd>{settings.defaultOutputFolder ?? "Same as input video"}</dd>
+            </div>
+          </dl>
+        )}
+      </section>
 
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        onSaved={(nextSettings) => setSettings(nextSettings)}
+      />
     </main>
   );
 }

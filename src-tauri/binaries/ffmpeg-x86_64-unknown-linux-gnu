@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Local dev placeholder to satisfy Tauri sidecar packaging on Linux.
+echo "ffmpeg sidecar placeholder for linux dev build"
+exit 0

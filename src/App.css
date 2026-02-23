@@ -1,7 +1,10 @@
 :root {
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-  color: #112a45;
-  background: radial-gradient(circle at top left, #f5f8ff 0%, #f0f4f9 45%, #eaf0f8 100%);
+  color: #12293f;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(62, 143, 224, 0.14), transparent 34%),
+    radial-gradient(circle at 94% 3%, rgba(15, 72, 126, 0.12), transparent 30%),
+    linear-gradient(165deg, #f5f8fd 0%, #edf2f9 45%, #e9f0f8 100%);
 }
 
 * {
@@ -14,7 +17,7 @@ body {
 
 .app-shell {
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1040px;
   padding: 32px 20px 56px;
 }
 
@@ -39,16 +42,52 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+.section-header {
+  margin-bottom: 14px;
 }
 
 .card {
   margin-top: 24px;
-  padding: 20px;
-  border-radius: 14px;
+  padding: 22px;
+  border-radius: 16px;
   background: #ffffff;
-  border: 1px solid #dbe6f4;
-  box-shadow: 0 18px 40px -30px rgba(38, 56, 88, 0.65);
+  border: 1px solid #d7e2ef;
+  box-shadow: 0 20px 45px -32px rgba(18, 38, 71, 0.55);
+}
+
+.dropzone {
+  border: 2px dashed #b8cade;
+  border-radius: 14px;
+  background: #f6f9fe;
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.dropzone-active {
+  border-color: #4f7eb5;
+  background: #eef4ff;
+}
+
+.dropzone-text {
+  margin: 0;
+  color: #3f5f84;
+}
+
+.file-summary {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f5f8fd;
+  border: 1px solid #d7e2ef;
+}
+
+.file-summary p {
+  margin: 0 0 6px;
 }
 
 .summary-grid {
@@ -102,6 +141,32 @@ select {
   background: #f4f7fb;
   border-color: #ccd9ea;
   color: #1e3b60;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.language-selector {
+  display: grid;
+  gap: 8px;
+}
+
+.output-path {
+  margin: 0 0 12px;
+  font-family: "IBM Plex Mono", "Cascadia Mono", monospace;
+  font-size: 0.9rem;
+  background: #f5f8fd;
+  border: 1px solid #d7e2ef;
+  border-radius: 10px;
+  padding: 10px;
+  word-break: break-word;
+}
+
+.process-btn {
+  min-width: 190px;
 }
 
 .modal-overlay {
@@ -197,6 +262,10 @@ select {
   .app-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .language-grid {
+    grid-template-columns: 1fr;
   }
 
   .row-inline {

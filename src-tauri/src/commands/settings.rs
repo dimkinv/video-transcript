@@ -68,7 +68,10 @@ pub async fn get_settings(app: AppHandle) -> Result<AppSettings, String> {
 }
 
 #[tauri::command]
-pub async fn save_settings(app: AppHandle, mut settings: AppSettings) -> Result<AppSettings, String> {
+pub async fn save_settings(
+    app: AppHandle,
+    mut settings: AppSettings,
+) -> Result<AppSettings, String> {
     settings.validate().map_err(|error| error.to_string())?;
     apply_default_languages(&mut settings);
 

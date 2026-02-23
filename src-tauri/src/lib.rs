@@ -51,7 +51,10 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             commands::settings::get_settings,
             commands::settings::save_settings,
-            commands::language::get_supported_languages
+            commands::language::get_supported_languages,
+            commands::video::select_video_file,
+            commands::video::validate_video_file,
+            commands::video::select_output_folder
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

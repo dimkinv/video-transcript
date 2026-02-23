@@ -131,16 +131,16 @@
 **Estimated Time**: 2 hours
 
 **Definition of Done:**
-- [ ] `src/App.tsx` updated with main layout structure
-- [ ] Header with app title and settings button
-- [ ] File selection area (placeholder)
-- [ ] Language selection area (source & target dropdowns)
-- [ ] Output location display area
-- [ ] Cost estimate display area
-- [ ] Process button (disabled state initially)
-- [ ] Progress area (hidden until processing)
-- [ ] Basic CSS styling in `src/App.css`
-- [ ] Responsive layout for different window sizes
+- [x] `src/App.tsx` updated with main layout structure
+- [x] Header with app title and settings button
+- [x] File selection area (placeholder)
+- [x] Language selection area (source & target dropdowns)
+- [x] Output location display area
+- [x] Cost estimate display area
+- [x] Process button (disabled state initially)
+- [x] Progress area (hidden until processing)
+- [x] Basic CSS styling in `src/App.css`
+- [x] Responsive layout for different window sizes
 
 ---
 
@@ -149,16 +149,16 @@
 **Estimated Time**: 2 hours
 
 **Definition of Done:**
-- [ ] `src/components/FileSelector.tsx` created
-- [ ] "Select Video File" button
-- [ ] `select_video_file()` Tauri command implemented
-- [ ] File dialog opens with video format filters (.mp4, .avi, .mkv, .mov, .wmv)
-- [ ] Selected file path displayed
-- [ ] File name and size displayed
-- [ ] Clear/remove file button
-- [ ] Drag and drop zone area (bonus)
-- [ ] File validation (exists, is video file)
-- [ ] Error messages for invalid files
+- [x] `src/components/FileSelector.tsx` created
+- [x] "Select Video File" button
+- [x] `select_video_file()` Tauri command implemented
+- [x] File dialog opens with video format filters (.mp4, .avi, .mkv, .mov, .wmv)
+- [x] Selected file path displayed
+- [x] File name and size displayed
+- [x] Clear/remove file button
+- [x] Drag and drop zone area (bonus)
+- [x] File validation (exists, is video file)
+- [x] Error messages for invalid files
 
 ---
 
@@ -167,13 +167,13 @@
 **Estimated Time**: 1 hour
 
 **Definition of Done:**
-- [ ] `src-tauri/src/commands/video.rs` created (or update existing)
-- [ ] `select_video_file()` command uses Tauri dialog API
-- [ ] File filter for video extensions
-- [ ] Returns `Option<String>` with file path
-- [ ] Error handling for dialog cancellation
-- [ ] Command registered in `main.rs`
-- [ ] Windows-style path handling
+- [x] `src-tauri/src/commands/video.rs` created (or update existing)
+- [x] `select_video_file()` command uses Tauri dialog API
+- [x] File filter for video extensions
+- [x] Returns `Option<String>` with file path
+- [x] Error handling for dialog cancellation
+- [x] Command registered in `main.rs`
+- [x] Windows-style path handling
 
 ---
 
@@ -182,14 +182,14 @@
 **Estimated Time**: 1.5 hours
 
 **Definition of Done:**
-- [ ] `src/components/LanguageSelector.tsx` created
-- [ ] Reusable dropdown component with props (languages, selected, onChange, label)
-- [ ] Source language selector displays filtered or all languages
-- [ ] Target language selector with "None" option for no translation
-- [ ] Searchable/filterable dropdown (use library like react-select)
-- [ ] Languages sorted alphabetically
-- [ ] Selected language persists in state
-- [ ] Integrated into main App.tsx
+- [x] `src/components/LanguageSelector.tsx` created
+- [x] Reusable dropdown component with props (languages, selected, onChange, label)
+- [x] Source language selector displays filtered or all languages
+- [x] Target language selector with "None" option for no translation
+- [x] Searchable/filterable dropdown (use library like react-select)
+- [x] Languages sorted alphabetically
+- [x] Selected language persists in state
+- [x] Integrated into main App.tsx
 
 ---
 
@@ -198,14 +198,14 @@
 **Estimated Time**: 1.5 hours
 
 **Definition of Done:**
-- [ ] `src/components/OutputLocationPicker.tsx` created
-- [ ] Displays current output path (default: same as video file)
-- [ ] "Change" button to select custom folder
-- [ ] `select_output_folder()` Tauri command implemented
-- [ ] Folder dialog opens and returns selected path
-- [ ] "Reset to Default" button (same folder as video)
-- [ ] Path validation and normalization
-- [ ] Command registered in `main.rs`
+- [x] `src/components/OutputLocationPicker.tsx` created
+- [x] Displays current output path (default: same as video file)
+- [x] "Change" button to select custom folder
+- [x] `select_output_folder()` Tauri command implemented
+- [x] Folder dialog opens and returns selected path
+- [x] "Reset to Default" button (same folder as video)
+- [x] Path validation and normalization
+- [x] Command registered in `main.rs`
 
 ---
 
@@ -214,17 +214,18 @@
 **Estimated Time**: 1 hour
 
 **Definition of Done:**
-- [ ] `src/services/tauri-commands.ts` created
-- [ ] Typed wrapper functions for all Tauri commands
-- [ ] Proper TypeScript return types
-- [ ] Async/await support
-- [ ] Error handling wrappers
-- [ ] JSDoc comments for each function
-- [ ] Exported functions used throughout app instead of direct `invoke()`
+- [x] `src/services/tauri-commands.ts` created
+- [x] Typed wrapper functions for all Tauri commands
+- [x] Proper TypeScript return types
+- [x] Async/await support
+- [x] Error handling wrappers
+- [x] JSDoc comments for each function
+- [x] Exported functions used throughout app instead of direct `invoke()`
 
 ---
 
 ## Phase 3: Video Analysis
+
 
 ### Task 3.1: Implement FFmpeg Wrapper Utility (Rust)
 **Priority**: P0 - Core Feature  

@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { open } from "@tauri-apps/plugin-dialog";
-import { getSettings, getSupportedLanguages, saveSettings } from "../services/tauri-commands";
+import { getSettings, getSupportedLanguages, saveSettings, selectOutputFolder } from "../services/tauri-commands";
 import { WHISPER_LANGUAGES, type Language } from "../types/languages";
 import { DEFAULT_SETTINGS, type AppSettings } from "../types/settings";
 
@@ -96,13 +95,8 @@ export function SettingsModal({ isOpen, onClose, onSaved }: SettingsModalProps) 
   };
 
   const handleBrowseOutputFolder = async () => {
-    const folder = await open({
-      directory: true,
-      multiple: false,
-      title: "Select default output folder",
-    });
-
-    if (typeof folder === "string") {
+    const folder = await selectOutputFolder();
+    if (folder) {
       setSettings((current) => ({ ...current, defaultOutputFolder: folder }));
     }
   };
